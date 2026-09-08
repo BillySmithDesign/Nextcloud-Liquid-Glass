@@ -82,7 +82,7 @@ Issues and pull requests are welcome. When reporting a visual problem, please in
 
 ## License
 
-MIT License. See `LICENSE`.
+Apache License 2.0. See `LICENSE`.
 
 ## Disclaimer
 
