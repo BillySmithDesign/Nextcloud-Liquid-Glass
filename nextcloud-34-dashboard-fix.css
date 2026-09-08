@@ -1,0 +1,30 @@
+/* Nextcloud 34.x dashboard panel override */
+html body .panels[data-v-4bfb0c4a] > .panel[data-v-4bfb0c4a],
+html body .panels > .panel {
+  background: linear-gradient(145deg, rgba(48, 51, 61, 0.78), rgba(25, 27, 34, 0.70)) !important;
+  background-color: transparent !important;
+  border: 1px solid rgba(255, 255, 255, 0.10) !important;
+  border-radius: 24px !important;
+  backdrop-filter: blur(28px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(28px) saturate(160%) !important;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.25), inset 0 1px rgba(255, 255, 255, 0.06) !important;
+}
+
+html body .panels[data-v-4bfb0c4a] > .panel[data-v-4bfb0c4a] > .panel--header[data-v-4bfb0c4a],
+html body .panels > .panel > .panel--header,
+html body .panels[data-v-4bfb0c4a] > .panel[data-v-4bfb0c4a] > .panel--content[data-v-4bfb0c4a],
+html body .panels > .panel > .panel--content,
+html body .panels[data-v-4bfb0c4a] > .panel[data-v-4bfb0c4a] .dashboard-widget,
+html body .panels > .panel .dashboard-widget {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+html body .panels[data-v-4bfb0c4a] > .panel[data-v-4bfb0c4a]:hover,
+html body .panels > .panel:hover {
+  background: linear-gradient(145deg, rgba(57, 61, 73, 0.82), rgba(30, 33, 41, 0.74)) !important;
+  border-color: rgba(255, 255, 255, 0.16) !important;
+  box-shadow: 0 23px 60px rgba(0, 0, 0, 0.29), inset 0 1px rgba(255, 255, 255, 0.075) !important;
+}
