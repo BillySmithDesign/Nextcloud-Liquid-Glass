@@ -1,0 +1,677 @@
+/* ============================================================
+   NEXTCLOUD LIQUID GLASS
+   macOS / iOS inspired custom theme
+   ============================================================
+
+   Designed for Nextcloud's Custom CSS app.
+
+   PRINCIPLES
+   ----------
+   • Visual overrides only where possible
+   • No forced Files grid/table layouts
+   • No forced column widths
+   • No core overflow/scroll manipulation
+   • No structural responsive overrides
+   • Dark-first macOS / iOS glass aesthetic
+
+   ============================================================ */
+
+:root {
+	--lg-accent: #0a84ff;
+	--lg-accent-hover: #2997ff;
+	--lg-accent-soft: rgba(10, 132, 255, 0.14);
+	--lg-bg: #111216;
+	--lg-bg-secondary: #17191f;
+	--lg-surface: rgba(34, 35, 40, 0.72);
+	--lg-surface-soft: rgba(255, 255, 255, 0.045);
+	--lg-surface-hover: rgba(255, 255, 255, 0.065);
+	--lg-surface-active: rgba(10, 132, 255, 0.16);
+	--lg-border: rgba(255, 255, 255, 0.075);
+	--lg-border-strong: rgba(255, 255, 255, 0.12);
+	--lg-text: #f5f5f7;
+	--lg-text-secondary: rgba(245, 245, 247, 0.62);
+	--lg-text-tertiary: rgba(245, 245, 247, 0.40);
+	--lg-radius-xs: 7px;
+	--lg-radius-sm: 9px;
+	--lg-radius-md: 13px;
+	--lg-radius-lg: 18px;
+	--lg-radius-xl: 24px;
+	--lg-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.15);
+	--lg-shadow-md: 0 10px 30px rgba(0, 0, 0, 0.22);
+	--lg-shadow-lg: 0 24px 70px rgba(0, 0, 0, 0.36);
+	--lg-transition: 160ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+html,
+body {
+	background:
+		radial-gradient(circle at 12% -10%, rgba(10, 132, 255, 0.12), transparent 35%),
+		radial-gradient(circle at 92% 2%, rgba(175, 82, 222, 0.09), transparent 32%),
+		linear-gradient(180deg, #15171c 0%, #0f1013 100%) !important;
+	color: var(--lg-text) !important;
+	font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+	-webkit-tap-highlight-color: transparent;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: var(--lg-text) !important;
+	letter-spacing: -0.018em !important;
+}
+
+h1 { font-weight: 650 !important; }
+h2,
+h3,
+h4 { font-weight: 600 !important; }
+p,
+label,
+span { -webkit-font-smoothing: antialiased; }
+
+#header,
+header#header {
+	background: rgba(24, 25, 31, 0.76) !important;
+	backdrop-filter: blur(26px) saturate(150%) !important;
+	-webkit-backdrop-filter: blur(26px) saturate(150%) !important;
+	border-bottom: 1px solid var(--lg-border) !important;
+	box-shadow: 0 8px 30px rgba(0, 0, 0, 0.16), inset 0 -1px rgba(0, 0, 0, 0.12) !important;
+}
+
+#header button,
+#header .button,
+#header .button-vue,
+#header .action-item__menutoggle {
+	border-radius: var(--lg-radius-md) !important;
+	transition: background var(--lg-transition), transform var(--lg-transition), border-color var(--lg-transition) !important;
+}
+
+#header button:hover,
+#header .button:hover,
+#header .button-vue:hover,
+#header .action-item__menutoggle:hover {
+	background: rgba(255, 255, 255, 0.07) !important;
+}
+
+#unified-search,
+.unified-search,
+.unified-search__input,
+#header input[type="search"] {
+	border-radius: var(--lg-radius-md) !important;
+}
+
+#header input[type="search"],
+.unified-search__input {
+	background: rgba(255, 255, 255, 0.065) !important;
+	border: 1px solid var(--lg-border) !important;
+	box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.025) !important;
+	color: var(--lg-text) !important;
+}
+
+#app-navigation,
+.app-navigation {
+	background: linear-gradient(180deg, rgba(24, 31, 43, 0.90), rgba(20, 23, 29, 0.88)) !important;
+	backdrop-filter: blur(24px) saturate(135%) !important;
+	-webkit-backdrop-filter: blur(24px) saturate(135%) !important;
+	border-right: 1px solid var(--lg-border) !important;
+	box-shadow: inset -1px 0 rgba(255, 255, 255, 0.025) !important;
+}
+
+#app-navigation li,
+.app-navigation li,
+.app-navigation-entry {
+	border-radius: var(--lg-radius-md) !important;
+}
+
+#app-navigation li > a,
+.app-navigation-entry__link,
+.app-navigation-entry a {
+	border-radius: var(--lg-radius-md) !important;
+	color: var(--lg-text) !important;
+	font-weight: 500 !important;
+	transition: background var(--lg-transition), color var(--lg-transition) !important;
+}
+
+#app-navigation li > a:hover,
+.app-navigation-entry__link:hover,
+.app-navigation-entry a:hover {
+	background: var(--lg-surface-hover) !important;
+}
+
+#app-navigation li.active > a,
+#app-navigation li.active,
+.app-navigation-entry.active,
+.app-navigation-entry--active,
+.app-navigation-entry__link--active {
+	background: linear-gradient(180deg, rgba(42, 124, 211, 0.36), rgba(25, 91, 169, 0.32)) !important;
+	color: #ffffff !important;
+	box-shadow: inset 0 1px rgba(255, 255, 255, 0.09), 0 3px 12px rgba(0, 0, 0, 0.12) !important;
+}
+
+#app-navigation svg,
+.app-navigation svg { opacity: 0.90; }
+
+#app-navigation input,
+.app-navigation input,
+#app-navigation input[type="search"],
+.app-navigation input[type="search"] {
+	background: rgba(255, 255, 255, 0.07) !important;
+	color: var(--lg-text) !important;
+	border: 1px solid var(--lg-border) !important;
+	border-radius: var(--lg-radius-md) !important;
+	box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.09) !important;
+}
+
+#app-content,
+.app-content {
+	background: linear-gradient(145deg, rgba(31, 31, 36, 0.74), rgba(21, 22, 26, 0.74)) !important;
+	border: 1px solid var(--lg-border) !important;
+	border-radius: var(--lg-radius-xl) !important;
+	box-shadow: var(--lg-shadow-md), inset 0 1px rgba(255, 255, 255, 0.025) !important;
+}
+
+.files-controls,
+.files-controls__actions,
+.app-content-header,
+.app-content-list-header {
+	background: rgba(25, 26, 30, 0.68) !important;
+	backdrop-filter: blur(20px) saturate(140%) !important;
+	-webkit-backdrop-filter: blur(20px) saturate(140%) !important;
+	border-bottom: 1px solid var(--lg-border) !important;
+}
+
+.files-controls button,
+.files-controls .button-vue,
+.files-controls .action-item__menutoggle {
+	border-radius: 11px !important;
+	background: rgba(255, 255, 255, 0.055) !important;
+	border: 1px solid var(--lg-border) !important;
+	box-shadow: inset 0 1px rgba(255, 255, 255, 0.035) !important;
+	transition: background var(--lg-transition), border-color var(--lg-transition) !important;
+}
+
+.files-controls button:hover,
+.files-controls .button-vue:hover,
+.files-controls .action-item__menutoggle:hover {
+	background: rgba(255, 255, 255, 0.085) !important;
+	border-color: var(--lg-border-strong) !important;
+}
+
+.files-list,
+.files-list__body,
+.files-list__table {
+	background: transparent !important;
+}
+
+.files-list__row,
+.files-list tr,
+tr[data-cy-files-list-row] {
+	background: transparent !important;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.055) !important;
+	box-shadow: none !important;
+	transition: background var(--lg-transition) !important;
+}
+
+.files-list__row:hover,
+.files-list tr:hover,
+tr[data-cy-files-list-row]:hover {
+	background: rgba(255, 255, 255, 0.045) !important;
+}
+
+.files-list__row--selected,
+.files-list tr.selected,
+tr[data-cy-files-list-row][aria-selected="true"] {
+	background: var(--lg-surface-active) !important;
+}
+
+.files-list__row-name,
+.files-list__row-name-text,
+.files-list__row-name-link,
+.files-list .filename {
+	background: transparent !important;
+	border: none !important;
+	box-shadow: none !important;
+}
+
+.files-list__row-name-text,
+.files-list .filename,
+.files-list__row-name a {
+	color: var(--lg-text) !important;
+	font-weight: 500 !important;
+	letter-spacing: -0.008em !important;
+}
+
+.files-list__row-size,
+.files-list__row-mtime,
+.files-list__row-column {
+	color: var(--lg-text-secondary) !important;
+}
+
+.files-list__header,
+.files-list thead,
+.files-list thead tr,
+.files-list thead th {
+	background: rgba(13, 14, 17, 0.72) !important;
+	color: rgba(245, 245, 247, 0.70) !important;
+	border-bottom: 1px solid var(--lg-border) !important;
+}
+
+.files-list th {
+	font-weight: 500 !important;
+	text-transform: none !important;
+	letter-spacing: 0 !important;
+}
+
+.files-list .action-item__menutoggle,
+.files-list .button-vue,
+.files-list button {
+	border-radius: var(--lg-radius-sm) !important;
+	box-shadow: none !important;
+	transition: background var(--lg-transition) !important;
+}
+
+.files-list .action-item__menutoggle:hover,
+.files-list .button-vue:hover,
+.files-list button:hover {
+	background: rgba(255, 255, 255, 0.07) !important;
+	transform: none !important;
+}
+
+.files-list__row-icon,
+.files-list__row-icon-preview,
+.files-list__row-icon img {
+	border-radius: 8px !important;
+}
+
+button,
+.button,
+.button-vue,
+input[type="button"],
+input[type="submit"] {
+	border-radius: var(--lg-radius-md) !important;
+	transition: background var(--lg-transition), border-color var(--lg-transition), box-shadow var(--lg-transition) !important;
+}
+
+button:not(.primary),
+.button:not(.primary) {
+	border-color: var(--lg-border) !important;
+}
+
+button.primary,
+.button.primary,
+.button-vue--primary,
+.button-vue--vue-primary,
+input[type="submit"].primary {
+	background: linear-gradient(180deg, #1690ff, #087cf0) !important;
+	color: #ffffff !important;
+	border: 1px solid rgba(10, 132, 255, 0.42) !important;
+	box-shadow: 0 4px 14px rgba(10, 132, 255, 0.18), inset 0 1px rgba(255, 255, 255, 0.14) !important;
+}
+
+input[type="checkbox"],
+.files-list input[type="checkbox"] {
+	border-radius: 5px !important;
+}
+
+input,
+textarea,
+select,
+.multiselect__input,
+.multiselect__tags,
+.vs__dropdown-toggle {
+	background: rgba(255, 255, 255, 0.065) !important;
+	color: var(--lg-text) !important;
+	border: 1px solid var(--lg-border) !important;
+	border-radius: var(--lg-radius-md) !important;
+	box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.10) !important;
+	transition: background var(--lg-transition), border-color var(--lg-transition), box-shadow var(--lg-transition) !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus,
+.multiselect__tags:focus-within {
+	background: rgba(255, 255, 255, 0.085) !important;
+	border-color: rgba(10, 132, 255, 0.50) !important;
+	box-shadow: 0 0 0 3px rgba(10, 132, 255, 0.12) !important;
+	outline: none !important;
+}
+
+.settings-section,
+.section,
+.admin-section,
+.personal-settings-setting-box,
+.app-settings-section {
+	background: linear-gradient(145deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.025)) !important;
+	border: 1px solid var(--lg-border) !important;
+	border-radius: var(--lg-radius-lg) !important;
+	box-shadow: var(--lg-shadow-sm) !important;
+}
+
+.modal-container,
+.dialog__modal,
+.oc-dialog,
+.dialog {
+	background: linear-gradient(145deg, rgba(49, 50, 56, 0.94), rgba(27, 28, 32, 0.94)) !important;
+	backdrop-filter: blur(30px) saturate(160%) !important;
+	-webkit-backdrop-filter: blur(30px) saturate(160%) !important;
+	border: 1px solid var(--lg-border-strong) !important;
+	border-radius: var(--lg-radius-xl) !important;
+	box-shadow: var(--lg-shadow-lg) !important;
+}
+
+.modal-mask,
+.dialog__overlay {
+	background: rgba(7, 8, 11, 0.42) !important;
+	backdrop-filter: blur(8px) !important;
+	-webkit-backdrop-filter: blur(8px) !important;
+}
+
+.popovermenu,
+.menu,
+.action-item__popper,
+.v-popper__popper,
+.dropdown-menu,
+.multiselect__content-wrapper {
+	background: rgba(38, 39, 44, 0.95) !important;
+	backdrop-filter: blur(26px) saturate(150%) !important;
+	-webkit-backdrop-filter: blur(26px) saturate(150%) !important;
+	border: 1px solid var(--lg-border-strong) !important;
+	border-radius: var(--lg-radius-lg) !important;
+	box-shadow: var(--lg-shadow-md) !important;
+}
+
+.app-sidebar,
+#app-sidebar {
+	background: rgba(28, 29, 34, 0.88) !important;
+	backdrop-filter: blur(26px) saturate(150%) !important;
+	-webkit-backdrop-filter: blur(26px) saturate(150%) !important;
+	border-left: 1px solid var(--lg-border) !important;
+	box-shadow: -8px 0 30px rgba(0, 0, 0, 0.15) !important;
+}
+
+table th { color: var(--lg-text-secondary) !important; }
+table td { border-color: rgba(255, 255, 255, 0.055) !important; }
+
+.breadcrumb,
+.breadcrumb__crumb { font-weight: 500 !important; }
+.breadcrumb__crumb { border-radius: var(--lg-radius-sm) !important; }
+
+.avatar,
+.contactsmenu__avatar {
+	border: 1px solid rgba(255, 255, 255, 0.12) !important;
+	box-shadow: 0 2px 9px rgba(0, 0, 0, 0.16) !important;
+}
+
+.empty-content,
+.empty-content__description { color: var(--lg-text-secondary) !important; }
+
+a { color: var(--lg-accent); }
+a:hover { color: var(--lg-accent-hover); }
+
+* {
+	scrollbar-width: thin;
+	scrollbar-color: rgba(255, 255, 255, 0.18) transparent;
+}
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+	background: rgba(255, 255, 255, 0.18);
+	border-radius: 999px;
+	border: 2px solid transparent;
+	background-clip: padding-box;
+}
+::-webkit-scrollbar-thumb:hover {
+	background: rgba(255, 255, 255, 0.27);
+	background-clip: padding-box;
+}
+
+.toastify,
+.toast,
+.notification {
+	background: rgba(36, 37, 42, 0.94) !important;
+	backdrop-filter: blur(22px) !important;
+	-webkit-backdrop-filter: blur(22px) !important;
+	border: 1px solid var(--lg-border-strong) !important;
+	border-radius: var(--lg-radius-lg) !important;
+	box-shadow: var(--lg-shadow-md) !important;
+}
+
+*:focus-visible {
+	outline: none !important;
+	box-shadow: 0 0 0 3px rgba(10, 132, 255, 0.16) !important;
+}
+
+hr {
+	border: none !important;
+	height: 1px !important;
+	background: var(--lg-border) !important;
+}
+
+.files-list--grid .files-list__row,
+.files-list__row--grid {
+	background: linear-gradient(145deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.025)) !important;
+	border: 1px solid var(--lg-border) !important;
+	border-radius: var(--lg-radius-lg) !important;
+	box-shadow: var(--lg-shadow-sm) !important;
+}
+
+.files-list--grid .files-list__row:hover,
+.files-list__row--grid:hover {
+	background: linear-gradient(145deg, rgba(255, 255, 255, 0.10), rgba(255, 255, 255, 0.04)) !important;
+}
+
+/* Dashboard */
+#app-dashboard,
+.dashboard {
+	background:
+		radial-gradient(circle at 18% 0%, rgba(10, 132, 255, 0.07), transparent 32%),
+		radial-gradient(circle at 85% 8%, rgba(175, 82, 222, 0.06), transparent 35%) !important;
+}
+
+.dashboard__greeting,
+.dashboard-greeting,
+#app-dashboard h1 {
+	font-weight: 650 !important;
+	letter-spacing: -0.035em !important;
+	color: #f5f5f7 !important;
+	text-shadow: 0 1px 12px rgba(0, 0, 0, 0.22);
+}
+
+.dashboard__weather,
+.weather-status,
+.weather {
+	background: rgba(255, 255, 255, 0.07) !important;
+	border: 1px solid rgba(255, 255, 255, 0.09) !important;
+	border-radius: 999px !important;
+	backdrop-filter: blur(18px) saturate(150%) !important;
+	-webkit-backdrop-filter: blur(18px) saturate(150%) !important;
+	box-shadow: inset 0 1px rgba(255, 255, 255, 0.04), 0 5px 16px rgba(0, 0, 0, 0.12) !important;
+}
+
+#app-dashboard .dashboard-widget,
+#app-dashboard .dashboard-panel,
+#app-dashboard .widget,
+.dashboard-widget,
+.dashboard-panel {
+	background: linear-gradient(145deg, rgba(46, 47, 54, 0.72), rgba(26, 27, 32, 0.66)) !important;
+	border: 1px solid rgba(255, 255, 255, 0.085) !important;
+	border-radius: 22px !important;
+	backdrop-filter: blur(24px) saturate(145%) !important;
+	-webkit-backdrop-filter: blur(24px) saturate(145%) !important;
+	box-shadow: 0 18px 46px rgba(0, 0, 0, 0.22), 0 3px 12px rgba(0, 0, 0, 0.10), inset 0 1px rgba(255, 255, 255, 0.045) !important;
+	transition: border-color var(--lg-transition), box-shadow var(--lg-transition) !important;
+}
+
+#app-dashboard .dashboard-widget:hover,
+#app-dashboard .dashboard-panel:hover,
+#app-dashboard .widget:hover,
+.dashboard-widget:hover,
+.dashboard-panel:hover {
+	border-color: rgba(255, 255, 255, 0.12) !important;
+	box-shadow: 0 22px 55px rgba(0, 0, 0, 0.26), 0 4px 16px rgba(0, 0, 0, 0.12), inset 0 1px rgba(255, 255, 255, 0.055) !important;
+}
+
+#app-dashboard .dashboard-widget header,
+#app-dashboard .dashboard-panel header,
+#app-dashboard .widget header,
+#app-dashboard [class*="widget"] [class*="header"] {
+	background: transparent !important;
+	border: none !important;
+	box-shadow: none !important;
+}
+
+.dashboard-widget h2,
+.dashboard-widget h3,
+.dashboard-panel h2,
+.dashboard-panel h3,
+.widget h2,
+.widget h3 {
+	color: #f5f5f7 !important;
+	font-weight: 600 !important;
+	letter-spacing: -0.022em !important;
+}
+
+.dashboard-widget,
+.dashboard-panel,
+.widget { color: #f5f5f7 !important; }
+
+.dashboard-widget p,
+.dashboard-panel p,
+.widget p,
+.dashboard-widget span,
+.dashboard-panel span,
+.widget span { color: rgba(245, 245, 247, 0.72) !important; }
+
+#app-dashboard .dashboard-widget__content,
+#app-dashboard .dashboard-widget .content,
+#app-dashboard .dashboard-panel .content,
+#app-dashboard .widget .content {
+	background: rgba(255, 255, 255, 0.035) !important;
+	border: 1px solid rgba(255, 255, 255, 0.055) !important;
+	border-radius: 18px !important;
+	box-shadow: inset 0 1px rgba(255, 255, 255, 0.025) !important;
+}
+
+#app-dashboard .dashboard-widget li,
+#app-dashboard .dashboard-panel li,
+#app-dashboard .widget li {
+	background: transparent !important;
+	border-radius: 10px !important;
+	transition: background var(--lg-transition) !important;
+}
+
+#app-dashboard .dashboard-widget li:hover,
+#app-dashboard .dashboard-panel li:hover,
+#app-dashboard .widget li:hover {
+	background: rgba(255, 255, 255, 0.055) !important;
+}
+
+.dashboard-widget img,
+.dashboard-panel img,
+.widget img {
+	border-radius: 10px !important;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+}
+
+#app-dashboard .empty-content,
+.dashboard-widget .empty-content,
+.dashboard-panel .empty-content,
+.widget .empty-content {
+	background: rgba(255, 255, 255, 0.025) !important;
+	border: 1px solid rgba(255, 255, 255, 0.045) !important;
+	border-radius: 18px !important;
+	box-shadow: none !important;
+}
+
+#app-dashboard .empty-content__icon { opacity: 0.32 !important; }
+#app-dashboard .empty-content__description { color: rgba(245, 245, 247, 0.52) !important; }
+
+#app-dashboard .dashboard-widget a,
+#app-dashboard .dashboard-panel a,
+#app-dashboard .widget a {
+	color: #f5f5f7 !important;
+	text-decoration: none !important;
+}
+
+@media (max-width: 768px) {
+	#app-navigation,
+	.app-navigation {
+		background: rgba(23, 27, 34, 0.96) !important;
+		backdrop-filter: blur(28px) saturate(150%) !important;
+		-webkit-backdrop-filter: blur(28px) saturate(150%) !important;
+	}
+
+	#app-content,
+	.app-content { border-radius: 18px !important; }
+
+	button,
+	.button,
+	.button-vue { border-radius: 11px !important; }
+}
+
+@media (prefers-color-scheme: light) {
+	:root {
+		--lg-bg: #eef0f4;
+		--lg-surface: rgba(255, 255, 255, 0.72);
+		--lg-surface-soft: rgba(255, 255, 255, 0.46);
+		--lg-surface-hover: rgba(0, 0, 0, 0.045);
+		--lg-border: rgba(0, 0, 0, 0.065);
+		--lg-border-strong: rgba(0, 0, 0, 0.10);
+		--lg-text: #171719;
+		--lg-text-secondary: rgba(23, 23, 25, 0.62);
+		--lg-text-tertiary: rgba(23, 23, 25, 0.40);
+	}
+
+	html,
+	body {
+		background:
+			radial-gradient(circle at 10% -10%, rgba(0, 122, 255, 0.08), transparent 35%),
+			radial-gradient(circle at 90% 0%, rgba(175, 82, 222, 0.06), transparent 30%),
+			linear-gradient(180deg, #f5f6f8, #eceef2) !important;
+	}
+
+	#header,
+	header#header { background: rgba(247, 248, 250, 0.76) !important; }
+
+	#app-navigation,
+	.app-navigation { background: rgba(244, 246, 250, 0.80) !important; }
+
+	#app-content,
+	.app-content { background: rgba(255, 255, 255, 0.62) !important; }
+
+	.files-list__header,
+	.files-list thead,
+	.files-list thead tr,
+	.files-list thead th { background: rgba(246, 247, 249, 0.82) !important; }
+
+	.files-list__row:hover,
+	.files-list tr:hover,
+	tr[data-cy-files-list-row]:hover { background: rgba(0, 0, 0, 0.035) !important; }
+
+	input,
+	textarea,
+	select,
+	.multiselect__input,
+	.multiselect__tags,
+	.vs__dropdown-toggle { background: rgba(255, 255, 255, 0.68) !important; }
+
+	.popovermenu,
+	.menu,
+	.action-item__popper,
+	.v-popper__popper,
+	.dropdown-menu,
+	.multiselect__content-wrapper { background: rgba(250, 250, 252, 0.94) !important; }
+
+	.app-sidebar,
+	#app-sidebar { background: rgba(248, 249, 251, 0.88) !important; }
+}
+
+/* ============================================================
+   END — NEXTCLOUD LIQUID GLASS
+   ============================================================ */
